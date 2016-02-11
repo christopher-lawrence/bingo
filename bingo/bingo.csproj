@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Models\BoardState.cs" />
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\CellContent.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameBoard.cs" />
     <Compile Include="Models\GameState.cs" />

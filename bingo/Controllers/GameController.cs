@@ -15,10 +15,10 @@ namespace bingo.Controllers
             return NewGame(name, Game.GetDefaultGame());
         }
 
-        public Game NewGame(string name, List<Cell> cells)
+        public Game NewGame(string name, List<CellContent> cellContents)
         {
             var game = new Game(name);
-            game.Cells.AddRange(cells);
+            game.CellContents.AddRange(cellContents);
 
             //TODO: Add the game to the db
 

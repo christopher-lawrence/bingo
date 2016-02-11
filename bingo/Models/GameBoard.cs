@@ -10,5 +10,6 @@ namespace bingo.Models
         public Guid Id { get; set; }
         public Guid GameId { get; set; }
         public BoardState BoardState { get; set; }
+        public string Header { get; set; }
     }
 }

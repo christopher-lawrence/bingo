@@ -8,7 +8,7 @@ namespace bingo.Models
     public class Game
     {
         public Guid Id { get; set; }
-        public List<Cell> Cells { get; set; }
+        public List<CellContent> CellContents { get; set; }
         public string Name { get; set; }
         public GameState State { get; set; }
         public List<Player> Players { get; set; }
@@ -17,20 +17,20 @@ namespace bingo.Models
         {
             Id = Guid.NewGuid();
             Name = name;
-            Cells = new List<Cell>();
+            CellContents = new List<CellContent>();
             State = new GameState();
             Players = new List<Player>();
         }
 
-        public static List<Cell> GetDefaultGame()
+        public static List<CellContent> GetDefaultGame()
         {
-            var cells = new List<Cell>();
+            var cellContents = new List<CellContent>();
             foreach (int i in Enumerable.Range(0, 24))
             {
-                cells.Add(new Cell { Content = i.ToString() });
+                cellContents.Add(new CellContent { Title = i.ToString() });
             }
 
-            return cells;
+            return cellContents;
         }
     }
 }
