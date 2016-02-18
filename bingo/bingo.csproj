@@ -127,7 +127,7 @@
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\CellContent.cs" />
     <Compile Include="Models\Game.cs" />
-    <Compile Include="Models\GameBoard.cs" />
+    <Compile Include="Models\GameCard.cs" />
     <Compile Include="Models\GameState.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

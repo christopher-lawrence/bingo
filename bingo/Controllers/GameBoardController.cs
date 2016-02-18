@@ -15,7 +15,7 @@ namespace bingo.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public GameBoard GetGameBoard(string id)
+        public GameCard GetGameBoard(string id)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace bingo.Controllers
         /// </summary>
         /// <param name="gameId">The game id to use</param>
         /// <returns>A new game board based on game id</returns>
-        public GameBoard NewGameBoard(string gameId)
+        public GameCard NewGameBoard(string gameId)
         {
             throw new NotImplementedException();
         }
