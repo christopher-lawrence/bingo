@@ -11,12 +11,12 @@ namespace bingo.Controllers
     public class BoardStateController : ApiController
     {
         //TODO
-        public BoardState GetBoardState(string id)
+        public GameCardState GetBoardState(string id)
         {
             throw new NotImplementedException();
         }
 
-        public BoardState GetNewBoardState()
+        public GameCardState GetNewBoardState()
         {
             throw new NotImplementedException();
         }

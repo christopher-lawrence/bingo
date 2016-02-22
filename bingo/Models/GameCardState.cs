@@ -5,7 +5,7 @@ using System.Web;
 
 namespace bingo.Models
 {
-    public class BoardState
+    public class GameCardState
     {
         //public List<Cell> Cells { get; set; }
 
@@ -90,7 +90,7 @@ namespace bingo.Models
             },
         };
 
-        public BoardState (int width, int height)
+        public GameCardState (int width, int height)
         {
             Cells = new Cell[width, height];
         }

@@ -11,12 +11,13 @@ namespace bingo.Models
         public Guid GameId { get; private set; }
         public Game Game { get; set; }
         public Cell[] Cells { get; private set; }
-        public BoardState BoardState { get; private set; }
+        public GameCardState BoardState { get; private set; }
 
         public GameCard(Guid gameId)
         {
             Id = Guid.NewGuid();
             GameId = gameId;
+            // TODO - Set Game
         }
 
         public void SetCells(int[] numbers)
