@@ -20,6 +20,9 @@ namespace bingo.Models
             Setup,
             Session,
             Complete,
+            Win,
+            Lose,
+            Tie // ?
         }
 
     }

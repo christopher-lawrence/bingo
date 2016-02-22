@@ -14,6 +14,8 @@ namespace bingo.Models
         /// </summary>
         public Cell[,] Cells { get; set; }
 
+        public GameState State { get; private set; }
+
         private char[,] _winingStates = new char[,] {
             { '*', '*', '*', '*', '*' ,
               Constants.Empty, Constants.Empty, Constants.Empty, Constants.Empty, Constants.Empty,
@@ -91,6 +93,12 @@ namespace bingo.Models
         public BoardState (int width, int height)
         {
             Cells = new Cell[width, height];
+        }
+        
+        public void SetState(GameState state)
+        {
+            //??
+            State = state;
         }
     }
 }
