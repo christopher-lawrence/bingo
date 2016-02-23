@@ -8,6 +8,7 @@ namespace bingo.Models
     public class GameCardState
     {
         //public List<Cell> Cells { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Game board layout

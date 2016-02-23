@@ -16,7 +16,7 @@
     <RootNamespace>bingo</RootNamespace>
     <AssemblyName>bingo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -96,7 +96,9 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -120,17 +122,32 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Controllers\GameBoardController.cs" />
-    <Compile Include="Controllers\BoardStateController.cs" />
-    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GameCardsController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Data\GameContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602231929172_Initial.cs" />
+    <Compile Include="Migrations\201602231929172_Initial.Designer.cs">
+      <DependentUpon>201602231929172_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602232032107_TestData.cs" />
+    <Compile Include="Migrations\201602232032107_TestData.Designer.cs">
+      <DependentUpon>201602232032107_TestData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602232040076_NullableWinner.cs" />
+    <Compile Include="Migrations\201602232040076_NullableWinner.Designer.cs">
+      <DependentUpon>201602232040076_NullableWinner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GameCardState.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\CellContent.cs" />
@@ -155,6 +172,17 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602231929172_Initial.resx">
+      <DependentUpon>201602231929172_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602232032107_TestData.resx">
+      <DependentUpon>201602232032107_TestData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602232040076_NullableWinner.resx">
+      <DependentUpon>201602232040076_NullableWinner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -170,7 +198,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55898</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55898/</IISUrl>
+          <IISUrl>http://localhost:81/bingo</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

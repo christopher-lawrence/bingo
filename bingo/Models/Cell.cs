@@ -7,9 +7,12 @@ namespace bingo.Models
 {
     public class Cell
     {
-        public CellContent Content { get; set; }
-        
+        public Guid Id { get; set; }
         public bool Marked { get; set; }
+
+        public Guid CellContentId { get; set; }
+        public CellContent CellContent { get; set; }
+        
         
         //TODO: X,Y Position?
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,23 +8,25 @@ namespace bingo.Models
 {
     public class Game
     {
+        [Required]
         public Guid Id { get; set; }
         public List<CellContent> CellContents { get; set; }
+        [Required]
         public string Name { get; set; }
-        public GameState State { get; set; }
+        public Guid GameStateId { get; set; }
+        public GameState GameState { get; set; }
         public List<Player> Players { get; set; }
         public string Header { get; set; }
         public Dictionary<Guid, GameCard> GameCards { get; private set; }
 
-        public Game(string name) : this(name, GetDefaultGame())
+        public Game() : this(GetDefaultGame())
         { }
 
-        public Game(string name, List<CellContent> cells)
+        public Game(List<CellContent> cells)
         {
             Id = Guid.NewGuid();
-            Name = name;
             CellContents = new List<CellContent>(cells);
-            State = new GameState();
+            GameState = new GameState();
             Players = new List<Player>();
 
             // Save to DB

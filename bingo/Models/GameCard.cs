@@ -22,7 +22,7 @@ namespace bingo.Models
 
         public void SetCells(int[] numbers)
         {
-            Cells = numbers.Select(n => new Cell { Content = Game.CellContents[n] }).ToArray();
+            Cells = numbers.Select(n => new Cell { CellContent = Game.CellContents[n] }).ToArray();
         }
     }
 }
