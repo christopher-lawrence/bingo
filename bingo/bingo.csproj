@@ -139,14 +139,6 @@
     <Compile Include="Migrations\201602231929172_Initial.Designer.cs">
       <DependentUpon>201602231929172_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602232032107_TestData.cs" />
-    <Compile Include="Migrations\201602232032107_TestData.Designer.cs">
-      <DependentUpon>201602232032107_TestData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602232040076_NullableWinner.cs" />
-    <Compile Include="Migrations\201602232040076_NullableWinner.Designer.cs">
-      <DependentUpon>201602232040076_NullableWinner.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GameCardState.cs" />
     <Compile Include="Models\Cell.cs" />
@@ -175,12 +167,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602231929172_Initial.resx">
       <DependentUpon>201602231929172_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602232032107_TestData.resx">
-      <DependentUpon>201602232032107_TestData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602232040076_NullableWinner.resx">
-      <DependentUpon>201602232040076_NullableWinner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
