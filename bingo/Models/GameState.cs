@@ -16,6 +16,7 @@ namespace bingo.Models
         public GameState()
         {
             CurrentState = State.Setup;
+            Id = Guid.NewGuid();
         }
 
         public enum State

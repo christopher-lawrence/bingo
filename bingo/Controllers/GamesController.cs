@@ -37,6 +37,34 @@ namespace bingo.Controllers
             return Ok(game);
         }
 
+        // GET: api/Games/new
+        //[ResponseType(typeof(Game))]
+        [Route("api/Games/new")]
+        [HttpGet]
+        public async Task<IHttpActionResult> NewGame()
+        {
+            var game = db.Games.Add(new Game
+            {
+                Id = Guid.NewGuid(),
+                Name = "New Game",
+                Header = "New Game",
+            });
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (GameExists(game.Id))
+                    return Conflict();
+                else
+                    throw;
+            }
+
+            return Ok(game);
+        }
+
         // PUT: api/Games/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGame(Guid id, Game game)

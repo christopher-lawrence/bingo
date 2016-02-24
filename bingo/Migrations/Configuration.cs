@@ -12,10 +12,6 @@ namespace bingo.Migrations
 
         protected override void Seed(bingo.Data.GameContext context)
         {
-            context.GameStates.AddOrUpdate(gs => gs.Id, 
-                new GameState { Id = System.Guid.Empty, CurrentState = GameState.State.Setup });
-
-            context.Games.AddOrUpdate(x => x.Id, new Game { Id = System.Guid.Empty, Name = "Test", GameStateId = System.Guid.Empty });
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

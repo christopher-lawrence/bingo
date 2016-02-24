@@ -8,7 +8,6 @@ namespace bingo.Models
 {
     public class Game
     {
-        [Required]
         public Guid Id { get; set; }
         public List<CellContent> CellContents { get; set; }
         [Required]
@@ -17,7 +16,7 @@ namespace bingo.Models
         public GameState GameState { get; set; }
         public List<Player> Players { get; set; }
         public string Header { get; set; }
-        public Dictionary<Guid, GameCard> GameCards { get; private set; }
+        public List<GameCard> GameCards { get; private set; }
 
         public Game() : this(GetDefaultGame())
         { }
@@ -30,7 +29,7 @@ namespace bingo.Models
             Players = new List<Player>();
 
             // Save to DB
-            GameCards = new Dictionary<Guid, GameCard>();
+            GameCards = new List<GameCard>();
         }
 
         public static List<CellContent> GetDefaultGame()
@@ -49,7 +48,7 @@ namespace bingo.Models
             var card = new GameCard(Id);
             card.SetCells(GetRandomNumbers());
 
-            GameCards.Add(card.Id, card);
+            GameCards.Add(card);
 
             return card;
         }
