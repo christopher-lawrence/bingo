@@ -1,35 +1,43 @@
-﻿using System;
+﻿using bingo.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace bingo.Models
 {
     public class Game
     {
+        private GameContext _context { get; set; }
+        [Key]
         public Guid Id { get; set; }
-        public List<CellContent> CellContents { get; set; }
+        
         [Required]
-        public string Name { get; set; }
-        public Guid GameStateId { get; set; }
-        public GameState GameState { get; set; }
-        public List<Player> Players { get; set; }
+        public string Name { get; set; }        
         public string Header { get; set; }
-        public List<GameCard> GameCards { get; private set; }
 
-        public Game() : this(GetDefaultGame())
+        // Links
+        public Guid AccountId { get; set; }
+        public Account Account { get; set; }
+        public virtual ICollection<CellContent> CellContents { get; set; }
+        public virtual GameState GameState { get; set; }
+        public List<Player> Players { get; set; }
+
+        public Game(GameContext context) : this(context, GetDefaultGame())
         { }
 
-        public Game(List<CellContent> cells)
+        public Game(GameContext context, List<CellContent> cells)
         {
             Id = Guid.NewGuid();
             CellContents = new List<CellContent>(cells);
             GameState = new GameState();
             Players = new List<Player>();
-
+            _context = context;
             // Save to DB
-            GameCards = new List<GameCard>();
+            //GameCards = new List<GameCard>();
         }
 
         public static List<CellContent> GetDefaultGame()
@@ -43,13 +51,14 @@ namespace bingo.Models
             return cellContents;
         }
 
-        public GameCard NewGameCard()
+        public async Task<GameCard> NewGameCard()
         {
-            var card = new GameCard(Id);
+            var card = new GameCard(_context, Id);
             card.SetCells(GetRandomNumbers());
 
-            GameCards.Add(card);
-
+            _context.GameCards.Add(card);
+            await _context.SaveChangesAsync();
+                        
             return card;
         }
 

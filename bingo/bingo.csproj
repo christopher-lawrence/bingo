@@ -143,7 +143,12 @@
     <Compile Include="Migrations\201602240153593_Update.Designer.cs">
       <DependentUpon>201602240153593_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602242130514_BetterRelations.cs" />
+    <Compile Include="Migrations\201602242130514_BetterRelations.Designer.cs">
+      <DependentUpon>201602242130514_BetterRelations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\GameCardState.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\CellContent.cs" />
@@ -174,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602240153593_Update.resx">
       <DependentUpon>201602240153593_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602242130514_BetterRelations.resx">
+      <DependentUpon>201602242130514_BetterRelations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
