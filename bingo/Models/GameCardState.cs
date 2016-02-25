@@ -12,11 +12,11 @@ namespace bingo.Models
         // Properties
         // ??        
         public Cell[,] Cells { get; set; }
-        public GameState.State GameState { get; set; }
 
-        // Relations
-        [Key, ForeignKey("GameCard")]
+        // ForeignKeys
         public Guid GameCardId { get; set; }
+
+        // Navigation
         public virtual GameCard GameCard { get; set; }
 
         #region Winning States

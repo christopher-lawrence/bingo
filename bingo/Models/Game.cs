@@ -19,12 +19,15 @@ namespace bingo.Models
         public string Name { get; set; }        
         public string Header { get; set; }
 
-        // Links
+        // Foreign keys
         public Guid AccountId { get; set; }
-        public Account Account { get; set; }
-        public virtual ICollection<CellContent> CellContents { get; set; }
+        public Guid GameStateId { get; set; }
+
+        // Navigation
+        public virtual Account Account { get; set; }
         public virtual GameState GameState { get; set; }
-        public List<Player> Players { get; set; }
+        public virtual ICollection<CellContent> CellContents { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
 
         public Game(GameContext context) : this(context, GetDefaultGame())
         { }

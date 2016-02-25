@@ -9,13 +9,16 @@ namespace bingo.Models
 {
     public class GameState
     {
+        public Guid Id { get; set; }
         public State CurrentState { get; set; }
 
-        // Relations
-        [Key, ForeignKey("Game")]
+        // Foreign Keys
         public Guid GameId { get; set; }
+
+        // Navigations
         public virtual Game Game { get; set; }
         public virtual ICollection<GameCardState> GameCardStates { get; set; }
+
         //TODO: Winner can be determined via GameCardStates...
         public Guid? WinnerId { get; set; }
         public Player Winner { get; set; }
