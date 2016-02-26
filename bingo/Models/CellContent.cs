@@ -6,15 +6,17 @@ namespace bingo.Models
 {
     public class CellContent
     {
-        [Key]
         public Guid Id { get; set; }
         public string Title { get; set; }
         // TODO: Image
 
-        // Relations
+        // ForeignKeys
         public Guid AccountId { get; set; }
+
+        // Relations
         public Account Account { get; set; }
-        public virtual ICollection<Game> Game { get; set; }
+        public virtual ICollection<Game> Games { get; set; }
+        public virtual ICollection<GameCard> GameCards { get; set; }
 
         public CellContent()
         {

@@ -10,6 +10,7 @@ namespace bingo.Models
     public class GameCardState
     {
         // Properties
+        public Guid Id { get; set; }
         // ??        
         public Cell[,] Cells { get; set; }
 

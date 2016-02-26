@@ -8,7 +8,8 @@ namespace bingo.Models
     public class Account
     {
         public Guid Id { get; set; }
-        
+        public string Name { get; set; }
+
         public virtual ICollection<Game> Games { get; set; }
         public virtual ICollection<CellContent> CellContents { get; set; }
     }

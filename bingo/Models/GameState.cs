@@ -17,7 +17,6 @@ namespace bingo.Models
 
         // Navigations
         public virtual Game Game { get; set; }
-        public virtual ICollection<GameCardState> GameCardStates { get; set; }
 
         //TODO: Winner can be determined via GameCardStates...
         public Guid? WinnerId { get; set; }

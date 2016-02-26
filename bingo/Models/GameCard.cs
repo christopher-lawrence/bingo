@@ -13,12 +13,16 @@ namespace bingo.Models
         public Guid Id { get; private set; }
         public int[] CellContentOrder { get; set; }
 
+        // ForeignKeys
+        public Guid GameId { get; set; }
+        public Guid GameCardStateId { get; set; }
+
         // Relations
         public virtual Game Game { get; set; }
+        public virtual GameCardState GameCardState { get; set; }
         // TODO - Might not be necessary -- Can be obtained from Game
         public virtual ICollection<CellContent> CellContents { get; set; }
         //public Cell[] Cells { get; private set; }
-        public virtual GameCardState GameCardState { get; set; }
 
         public GameCard(GameContext context, Guid gameId)
         {
