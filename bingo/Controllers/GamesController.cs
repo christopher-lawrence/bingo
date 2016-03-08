@@ -15,10 +15,25 @@ namespace bingo.Controllers
     {
         private GameContext db = new GameContext();
 
-        // GET: api/Games
-        public IQueryable<Game> GetGames()
+        /// <summary>
+        /// Returns _all_ games
+        /// </summary>
+        /// <returns>Returns _all_ games</returns>
+        [Route("api/Games/all")]
+        public IQueryable<Game> GetAllGames()
         {
             return db.Games;
+        }
+
+        // GET: api/Games
+        /// <summary>
+        /// Get all games for the account 
+        /// </summary>
+        /// <param name="accountId">account id</param>
+        /// <returns>Returns all games for the account</returns>
+        public IQueryable<Game> GetGames(Guid accountId)
+        {
+            return db.Games.Where(g => g.AccountId == accountId);
         }
 
         // GET: api/Games/5
@@ -36,15 +51,21 @@ namespace bingo.Controllers
 
         // GET: api/Games/new
         //[ResponseType(typeof(Game))]
+        /// <summary>
+        /// Creates a new game for the account
+        /// </summary>
+        /// <param name="accountId">account id</param>
+        /// <returns>A new default game for the account</returns>
         [Route("api/Games/new")]
         [HttpGet]
-        public async Task<IHttpActionResult> NewGame()
+        public async Task<IHttpActionResult> NewGame(Guid accountId)
         {
             var game = db.Games.Add(new Game(db)
             {
                 Id = Guid.NewGuid(),
                 Name = "New Game",
-                Header = "New Game",
+                Header = "New Game",            
+                AccountId = accountId,    
             });
 
             try
